@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Designs - Alex Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>My Designs</h1></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="designs.html">Designs</a>
+    <a href="photos.html">Photos</a>
+    <a href="videos.html">Videos</a>
+  </nav>
+
+  <section class="gallery">
+    <img src="designs/prajina_acoustic.jpg">
+    <img src="designs/prajina_acoustic (2).jpg">
+    <img src="designs/sponsor.jpg">
+    <img src="designs/sponsor (1).jpg">
+    <img src="designs/sponsor (2).jpg">
+    <img src="designs/sponsor (3).jpg">
+    <img src="designs/sponsor (4).jpg">
+    <img src="designs/guestartist_acoustic.jpg">
+    <img src="designs/audience_acoustic.jpg"/>  
+    <img src="designs/performers_acoustic.jpg"/>
+    <img src="designs/seepmela.jpg"/>
+    <img src="designs/New Year.jpg"/>
+    <img src="designs/bba_ncmt.jpg"/>
+    <img src="designs/bcs_ncmt.jpg"/>
+    <img src="designs/bhm_ncmt.jpg"/>
+    <img src="designs/bit_ncmt.jpg"/>
+    <img src="designs/k ho hamro dharma.jpg"/>
+    <img src="designs/invitationcard_ncmt.jpg"/>
+    <img src="designs/dhakatopicompe_ncmt.jpg"/>
+    <img src="designs/Holi_ncmt.jpg"/>
+  </section>
+  <div class="modal" id="fullscreen-modal">
+  <img id="modal-img" class="modal-content" />
+  <video id="modal-video" class="modal-content" controls></video>
+</div>
+
+<script>
+  const modal = document.getElementById('fullscreen-modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalVid = document.getElementById('modal-video');
+
+  document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'IMG' && e.target.closest('.gallery, .photo')) {
+      modalImg.src = e.target.src;
+      modalImg.style.display = 'block';
+      modalVid.style.display = 'none';
+      modal.classList.add('show');
+    } else if ((e.target.tagName === 'VIDEO' || e.target.tagName === 'IFRAME') && e.target.closest('.videos')) {
+      modalVid.src = e.target.src;
+      modalVid.style.display = 'block';
+      modalImg.style.display = 'none';
+      modal.classList.add('show');
+    } else if (e.target === modal) {
+      modal.classList.remove('show');
+      modalImg.src = '';
+      modalVid.src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

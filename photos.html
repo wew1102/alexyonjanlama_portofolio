@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Photos - Alex Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>My Photography</h1></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="designs.html">Designs</a>
+    <a href="photos.html">Photos</a>
+    <a href="videos.html">Videos</a>
+  </nav>
+
+  <section class="photo">
+    <img src="images/dharara.jpg">
+    <img src="images/boudhanath2.jpg">
+    <img src="images/boudhanath.jpg">
+    <img src="images/bmw.jpg">
+    <img src="images/prajina_gurung.jpg">
+    <img src="images/small_drinking_boba.jpg">
+    <img src="images/small_drinking_boba2.jpg">
+    <img src="images/anmol.jpg">
+  </section>
+    <div class="modal" id="fullscreen-modal">
+  <img id="modal-img" class="modal-content" />
+  <video id="modal-video" class="modal-content" controls></video>
+</div>
+
+<script>
+  const modal = document.getElementById('fullscreen-modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalVid = document.getElementById('modal-video');
+
+  document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'IMG' && e.target.closest('.gallery, .photo')) {
+      modalImg.src = e.target.src;
+      modalImg.style.display = 'block';
+      modalVid.style.display = 'none';
+      modal.classList.add('show');
+    } else if ((e.target.tagName === 'VIDEO' || e.target.tagName === 'IFRAME') && e.target.closest('.videos')) {
+      modalVid.src = e.target.src;
+      modalVid.style.display = 'block';
+      modalImg.style.display = 'none';
+      modal.classList.add('show');
+    } else if (e.target === modal) {
+      modal.classList.remove('show');
+      modalImg.src = '';
+      modalVid.src = '';
+    }
+  });
+</script>
+
+</body>
+</html>
